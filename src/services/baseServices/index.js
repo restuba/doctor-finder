@@ -42,6 +42,7 @@ const createAxiosInterceptor = (url) => {
   return axiosCreate;
 };
 
-const BaseService = createAxiosInterceptor(process.env.REACT_APP_REST_URL);
+const baseUrl = `${process.env.REACT_APP_REST_URL}/${process.env.REACT_APP_REST_KEY}`;
+const BaseService = createAxiosInterceptor(baseUrl);
 
 export default BaseService;
