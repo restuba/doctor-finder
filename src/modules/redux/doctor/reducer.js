@@ -51,12 +51,18 @@ export const doctorReducer = (state = initialState, action) => {
         success: action.payload,
         loading: false,
       };
+    case actionType.UPDATE_LIST_SOURCE:
+      return {
+        ...state,
+        action: action.type,
+        listSource: action.payload,
+        loading: false,
+      };
     case actionType.UPDATE_LIST_DOCTOR:
       return {
         ...state,
         action: action.type,
         listDoctors: action.payload,
-        loading: false,
       };
     case actionType.UPDATE_LIST_HOSPITAL:
       return {
