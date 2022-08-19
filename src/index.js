@@ -6,6 +6,7 @@ import { store } from './modules';
 import { Pages } from './components';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import 'antd/dist/antd.less';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
