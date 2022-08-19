@@ -62,6 +62,7 @@ const Index = (props) => {
                       options={additionalSelectProps?.options || []}
                       placeholder={additionalSelectProps?.placeholder}
                       style={{ display: 'block' }}
+                      maxTagCount={1}
                       onChange={(data) => {
                         onChangeFilter(data, additionalSelectProps?.key);
                       }}

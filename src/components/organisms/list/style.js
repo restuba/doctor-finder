@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   box-shadow: 0px 4px 22px rgb(0 0 0 / 8%);
   border-radius: 10px;
   margin-top: 32px;
+  min-height: 540px;
   .component_list {
     display: grid;
     grid-template-columns: repeat(1, auto);
