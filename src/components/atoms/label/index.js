@@ -1,16 +1,6 @@
 import React from 'react';
 import Wrapper from './style';
-import { tags } from '../../../configs';
-
-const initialValues = {
-  size: {
-    sm: 0.875,
-    md: 1,
-  },
-  weight: 400,
-  unit: 'rem',
-  block: false,
-};
+import { tags, initialValues } from '../../../configs';
 
 const Index = (props) => {
   const {
@@ -42,7 +32,8 @@ const Index = (props) => {
       color={color}
       fit={fit}
       variant={variant}
-      style={{ ...otherProps }}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...otherProps}
     >
       <Component className="component_font">{children}</Component>
     </Wrapper>
