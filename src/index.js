@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import { store } from './modules';
-import { Pages } from './components';
+import { Pages } from './components/pages';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import 'antd/dist/antd.less';
