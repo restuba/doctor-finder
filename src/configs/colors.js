@@ -49,10 +49,6 @@ export const colors = {
   blue4: '#E5F0FF',
 
   // PRIMARY
-  primaryDarker: '#4501A6',
-  mainColor: '#8631FF',
-  primarySofter: '#AC5DD9',
-  primaryLighter: '#DDA5E9',
-  primarySubtle: '#F6F1FF',
+  primary: '#61C7B5',
   white: '#ffffff',
 };

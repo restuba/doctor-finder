@@ -9,7 +9,10 @@ const doctorInitialState = {
   loading: false,
   error: messageType,
   success: messageType,
-  list: [],
+  listSource: [],
+  listDoctors: [],
+  listHospitals: [],
+  listSpecialization: [],
 };
 
 const initialState = {
@@ -48,12 +51,28 @@ export const doctorReducer = (state = initialState, action) => {
         success: action.payload,
         loading: false,
       };
+    case actionType.UPDATE_LIST_SOURCE:
+      return {
+        ...state,
+        action: action.type,
+        listSource: action.payload,
+        loading: false,
+      };
     case actionType.UPDATE_LIST_DOCTOR:
       return {
         ...state,
         action: action.type,
-        list: action.payload,
-        loading: false,
+        listDoctors: action.payload,
+      };
+    case actionType.UPDATE_LIST_HOSPITAL:
+      return {
+        ...state,
+        listHospitals: action.payload,
+      };
+    case actionType.UPDATE_LIST_SPECIALIZATION:
+      return {
+        ...state,
+        listSpecialization: action.payload,
       };
     default:
       return state;
