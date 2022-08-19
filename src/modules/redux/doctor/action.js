@@ -1,5 +1,6 @@
 import { actionType } from './actionType';
 import { BaseService } from '../../../services';
+import { getArrayUniqueByKey } from '../../../utils';
 
 const loadingFetch = () => {
   return {
@@ -28,13 +29,38 @@ const updateFetch = (payload) => {
   };
 };
 
-// eslint-disable-next-line import/prefer-default-export
+const updateHospitals = (payload) => {
+  return {
+    type: actionType.UPDATE_LIST_HOSPITAL,
+    payload,
+  };
+};
+
+const updateSpecializations = (payload) => {
+  return {
+    type: actionType.UPDATE_LIST_SPECIALIZATION,
+    payload,
+  };
+};
+
 export const getListDoctor = () => {
   return (dispatch) => {
     dispatch(loadingFetch());
     return BaseService.get()
-      .then((response) => {
-        dispatch(updateFetch(response.data));
+      .then(({ data }) => {
+        dispatch(updateFetch(data));
+        const hospitals = data?.map((item) => {
+          const itemData = item?.hospital[0] || {};
+          return { value: itemData?.id, label: itemData?.name };
+        });
+        const specializations = data?.map((item) => {
+          const itemData = item?.specialization;
+          return { value: itemData?.id, label: itemData?.name };
+        });
+        dispatch(
+          updateSpecializations(getArrayUniqueByKey(specializations, 'value'))
+        );
+        dispatch(updateHospitals(getArrayUniqueByKey(hospitals, 'value')));
         dispatch(
           successFetch({
             message: 'success get list doctor',
